@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Integrated Case 7 | Stakeholder Analysis</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #eef5fa;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #263746;
+    line-height: 1.55;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero {
+    background: linear-gradient(135deg, #123f67 0%, #1f5f91 55%, #2f79ad 100%);
+    color: #ffffff;
+    padding: 50px 25px 42px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    top: -100px;
+    right: -70px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    bottom: -90px;
+    left: -40px;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+    margin: auto;
+}
+
+.case-label {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid rgba(255,255,255,0.40);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.10);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.25;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 13px auto 0;
+    font-size: 16px;
+    color: #e9f6ff;
+}
+
+/* ===========================
+   PAGE WRAPPER
+=========================== */
+
+.wrapper {
+    width: min(1180px, calc(100% - 30px));
+    margin: -22px auto 45px;
+    position: relative;
+    z-index: 5;
+}
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
+.nav-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(20,63,103,0.13);
+    margin-bottom: 20px;
+}
+
+.nav-title {
+    text-align: center;
+    color: #174d77;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stage-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.stage-nav button,
+.control-btn {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.stage-nav button {
+    background: #edf6fc;
+    color: #174d77;
+    border: 1px solid #cee2f1;
+    padding: 9px 14px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.stage-nav button:hover {
+    background: #174d77;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   CASE INFORMATION
+=========================== */
+
+.case-box {
+    background: #ffffff;
+    border: 1px solid #d6e5ef;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(20,63,103,0.07);
+}
+
+.case-box-title {
+    background: #f3f9fd;
+    padding: 14px 20px;
+    color: #174d77;
+    font-weight: 700;
+    border-bottom: 1px solid #d6e5ef;
+}
+
+.case-box-content {
+    padding: 18px 22px;
+    font-size: 15px;
+}
+
+.case-box-content p {
+    margin: 0 0 8px;
+}
+
+.case-box-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===========================
+   CONTROLS
+=========================== */
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0 0 12px;
+}
+
+.control-btn {
+    background: #ffffff;
+    color: #174d77;
+    padding: 9px 14px;
+    border-radius: 8px;
+    border: 1px solid #bcd6e8;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.control-btn:hover {
+    background: #174d77;
+    color: #ffffff;
+}
+
+/* ===========================
+   MAIN OUTER TABLE
+=========================== */
+
+.main-table-wrapper {
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(20,63,103,0.11);
+    border: 1px solid #d6e5ef;
+}
+
+.main-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.main-table > tbody > tr {
+    border-bottom: 1px solid #d7e4ed;
+}
+
+.main-table > tbody > tr:last-child {
+    border-bottom: none;
+}
+
+.stage-cell {
+    width: 215px;
+    vertical-align: top;
+    padding: 0;
+    background: #f2f8fc;
+    border-right: 1px solid #d7e4ed;
+}
+
+.stage-button {
+    width: 100%;
+    min-height: 92px;
+    border: none;
+    background: transparent;
+    padding: 20px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: #174d77;
+    transition: 0.2s ease;
+}
+
+.stage-button:hover {
+    background: #e4f1f9;
+}
+
+.stage-button.active {
+    background: linear-gradient(135deg, #174d77, #2874a6);
+    color: #ffffff;
+}
+
+.stage-number {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.78;
+    margin-bottom: 5px;
+}
+
+.stage-name {
+    display: block;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.stage-arrow {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 18px;
+    transition: transform 0.25s ease;
+}
+
+.stage-button.active .stage-arrow {
+    transform: rotate(90deg);
+}
+
+.stage-content-cell {
+    padding: 0;
+    vertical-align: top;
+    background: #ffffff;
+}
+
+.stage-content {
+    display: none;
+    padding: 18px;
+}
+
+.stage-content.open {
+    display: block;
+}
+
+/* ===========================
+   INNER TABLES
+=========================== */
+
+.inner-table-wrapper {
+    overflow-x: auto;
+    border-radius: 11px;
+    border: 1px solid #d5e3ed;
+}
+
+.inner-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+.inner-table th {
+    background: #1f5f91;
+    color: #ffffff;
+    padding: 11px 12px;
+    text-align: left;
+    font-size: 13px;
+    border-right: 1px solid rgba(255,255,255,0.20);
+}
+
+.inner-table th:last-child {
+    border-right: none;
+}
+
+.inner-table td {
+    padding: 10px 12px;
+    border-top: 1px solid #dce8f0;
+    border-right: 1px solid #e0eaf1;
+    font-size: 13.5px;
+    vertical-align: top;
+}
+
+.inner-table td:last-child {
+    border-right: none;
+}
+
+.inner-table tbody tr:nth-child(even) {
+    background: #f7fbfe;
+}
+
+.inner-table tbody tr:hover {
+    background: #eaf5fc;
+}
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.internal {
+    background: #e8f4fc;
+    color: #155a8a;
+}
+
+.external {
+    background: #f2edf9;
+    color: #65418c;
+}
+
+.high {
+    background: #fdecec;
+    color: #a33c3c;
+}
+
+.low {
+    background: #edf6ee;
+    color: #417347;
+}
+
+.medium {
+    background: #fff4dc;
+    color: #8a6820;
+}
+
+.critical {
+    background: #fde9ea;
+    color: #9b3138;
+}
+
+.affected {
+    background: #fff4dc;
+    color: #82621b;
+}
+
+.decision {
+    background: #e8f2fb;
+    color: #245f8d;
+}
+
+.manage {
+    background: #e8eefb;
+    color: #345b9d;
+}
+
+.informed {
+    background: #e8f7f3;
+    color: #28715e;
+}
+
+.satisfied {
+    background: #fff3dd;
+    color: #84621c;
+}
+
+.support-minus {
+    background: #fde8e8;
+    color: #9d3030;
+}
+
+.support-zero {
+    background: #f1f3f5;
+    color: #5f6770;
+}
+
+.support-plus {
+    background: #e8f5eb;
+    color: #387347;
+}
+
+.support-champion {
+    background: #e8effb;
+    color: #315b99;
+}
+
+/* ===========================
+   STAGE NOTE
+=========================== */
+
+.stage-note {
+    margin: 0 0 12px;
+    padding: 11px 14px;
+    background: #f4f9fd;
+    border-left: 4px solid #2874a6;
+    border-radius: 4px 8px 8px 4px;
+    font-size: 13.5px;
+    color: #385266;
+}
+
+/* ===========================
+   KEYS
+=========================== */
+
+.keys-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.key-card {
+    background: #ffffff;
+    border: 1px solid #d6e5ef;
+    border-radius: 14px;
+    padding: 17px;
+    box-shadow: 0 5px 18px rgba(20,63,103,0.06);
+}
+
+.key-card h3 {
+    margin: 0 0 12px;
+    color: #174d77;
+    font-size: 17px;
+}
+
+.key-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.key-table td {
+    padding: 7px;
+    border-bottom: 1px solid #e0e9ef;
+    font-size: 13px;
+}
+
+.key-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+    text-align: center;
+    padding: 27px 20px 35px;
+    color: #607282;
+    font-size: 13px;
+}
+
+.footer a {
+    color: #174d77;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 760px) {
+
+    .hero {
+        padding: 38px 18px 35px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .wrapper {
+        width: calc(100% - 18px);
+    }
+
+    .main-table,
+    .main-table tbody,
+    .main-table tr,
+    .main-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .stage-cell {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #d7e4ed;
+    }
+
+    .stage-button {
+        min-height: auto;
+        padding: 15px 17px;
+    }
+
+    .stage-content {
+        padding: 12px;
+    }
+
+    .keys-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .controls {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-inner">
+
+        <div class="case-label">Integrated Case 7</div>
+
+        <h1>
+            AI-Supported Online Master's Programme
+        </h1>
+
+        <p>
+            Stakeholder identification, mapping, influence and impact analysis,
+            engagement priorities, support assessment, RACI responsibility allocation,
+            and communication planning.
+        </p>
+
+    </div>
+</header>
+
+
+<main class="wrapper">
+
+    <!-- NAVIGATION -->
+    <section class="nav-card">
+
+        <div class="nav-title">
+            Select a stage
+        </div>
+
+        <div class="stage-nav">
+            <button onclick="openStage(1)">Stage 1</button>
+            <button onclick="openStage(2)">Stage 2</button>
+            <button onclick="openStage(3)">Stage 3</button>
+            <button onclick="openStage(4)">Stage 4</button>
+            <button onclick="openStage(5)">Stage 5</button>
+            <button onclick="openStage(6)">Stage 6</button>
+            <button onclick="openStage(7)">Stage 7</button>
+        </div>
+
+    </section>
+
+
+    <!-- CASE -->
+    <section class="case-box">
+
+        <div class="case-box-title">
+            Case Context
+        </div>
+
+        <div class="case-box-content">
+
+            <p>
+                A university is launching a new online master's programme using
+                Moodle, automated assessment, AI assistants, video lectures,
+                external industry experts and learning analytics.
+            </p>
+
+            <p>
+                Key challenges include teacher resistance to course redesign,
+                concerns from IT about the implementation schedule, management
+                pressure for rapid launch, student concerns about AI and personal
+                data, design compliance issues, external experts requesting their
+                own tools, and legal requirements for changes to data processing.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- CONTROLS -->
+    <div class="controls">
+        <button class="control-btn" onclick="expandAll()">
+            Expand All
+        </button>
+
+        <button class="control-btn" onclick="collapseAll()">
+            Collapse All
+        </button>
+    </div>
+
+
+    <!-- MAIN TABLE -->
+    <div class="main-table-wrapper">
+
+        <table class="main-table">
+            <tbody>
+
+
+                <!-- =========================================
+                     STAGE 1
+                ========================================== -->
+
+                <tr id="stage1">
+
+                    <td class="stage-cell">
+
+                        <button class="stage-button active"
+                                id="stageButton1"
+                                onclick="toggleStage(1)">
+
+                            <span class="stage-number">
+                                Stage 1
+                            </span>
+
+                            <span class="stage-name">
+                                Stakeholder Identification
+                            </span>
+
+                            <span class="stage-arrow">›</span>
+
+                        </button>
+
+                    </td>
+
+                    <td class="stage-content-cell">
+
+                        <div class="stage-content open"
+                             id="stageContent1">
+
+                            <div class="stage-note">
+                                Identify at least 12 stakeholders and classify each as internal or external.
+                            </div>
+
+                            <div class="inner-table-wrapper">
+
+                                <table class="inner-table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Stakeholder</th>
+                                        <th>Type</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>University Senior Management</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Programme Director</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Teachers / Course Instructors</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Instructional Designers</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>5</td>
+                                        <td>IT Department / LMS Team</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Students</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Legal / Data Protection Officer</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Quality Assurance Team</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>9</td>
+                                        <td>AI / Learning Analytics Specialists</td>
+                                        <td><span class="badge internal">Internal</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>10</td>
+                                        <td>External Industry Experts</td>
+                                        <td><span class="badge external">External</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>11</td>
+                                        <td>Technology Vendors</td>
+                                        <td><span class="badge external">External</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Accreditation / Regulatory Bodies</td>
+                                        <td><span class="badge external">External</span></td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- =========================================
+                     STAGE 2
+                ========================================== -->
+
+                <tr id="stage2">
+
+                    <td class="stage-cell">
+
+                        <button class="stage-button"
+                                id="stageButton2"
+                                onclick="toggleStage(2)">
+
+                            <span class="stage-number">
+                                Stage 2
+                            </span>
+
+                            <span class="stage-name">
+                                Stakeholder Mapping
+                            </span>
+
+                            <span class="stage-arrow">›</span>
+
+                        </button>
+
+                    </td>
+
+                    <td class="stage-content-cell">
+
+                        <div class="stage-content"
+                             id="stageContent2">
+
+                            <div class="stage-note">
+                                Group stakeholders according to their main functional role in the project.
+                            </div>
+
+                            <div class="inner-table-wrapper">
+
+                                <table class="inner-table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Functional Group</th>
+                                        <th>Stakeholders</th>
+                                        <th>Main Role</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr>
+                                        <td><strong>Decision Makers</strong></td>
+                                        <td>
+                                            University Senior Management;
+                                            Programme Director
+                                        </td>
+                                        <td>
+                                            Approve major decisions, resources,
+                                            priorities and programme direction.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Users</strong></td>
+                                        <td>
+                                            Teachers; Students
+                                        </td>
+                                        <td>
+                                            Directly use the programme,
+                                            Moodle, AI tools and assessment systems.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Implementers</strong></td>
+                                        <td>
+                                            Instructional Designers;
+                                            IT/LMS Team;
+                                            AI/Learning Analytics Specialists
+                                        </td>
+                                        <td>
+                                            Turn programme plans into working
+                                            courses, systems and services.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Experts / Regulators</strong></td>
+                                        <td>
+                                            Legal/Data Protection Officer;
+                                            Quality Assurance Team;
+                                            Accreditation/Regulatory Bodies
+                                        </td>
+                                        <td>
+                                            Provide specialist guidance and
+                                            ensure compliance and quality.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Partners</strong></td>
+                                        <td>
+                                            External Industry Experts;
+                                            Technology Vendors
+                                        </td>
+                                        <td>
+                                            Provide external expertise,
+                                            technology and professional input.
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- =========================================
+                     STAGE 3
+                ========================================== -->
+
+                <tr id="stage3">
+
+                    <td class="stage-cell">
+
+                        <button class="stage-button"
+                                id="stageButton3"
+                                onclick="toggleStage(3)">
+
+                            <span class="stage-number">
+                                Stage 3
+                            </span>
+
+                            <span class="stage-name">
+                                Influence and Impact
+                            </span>
+
+                            <span class="stage-arrow">›</span>
+
+                        </button>
+
+                    </td>
+
+                    <td class="stage-content-cell">
+
+                        <div class="stage-content"
+                             id="stageContent3">
+
+                            <div class="stage-note">
+                                Influence shows the stakeholder's ability to affect the project.
+                                Impact shows how strongly the project affects the stakeholder.
+                            </div>
+
+                            <div class="inner-table-wrapper">
+
+                                <table class="inner-table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Stakeholder</th>
+                                        <th>Influence</th>
+                                        <th>Impact</th>
+                                        <th>Grid Position</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr>
+                                        <td>University Senior Management</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge low">Low</span></td>
+                                        <td><span class="badge decision">Important Decision Maker</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Programme Director</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge critical">Critical Stakeholder</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Teachers</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge critical">Critical Stakeholder</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>IT Department</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge critical">Critical Stakeholder</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Legal / Data Protection Officer</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge critical">Critical Stakeholder</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Instructional Designers</td>
+                                        <td><span class="badge low">Low</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge affected">Affected Stakeholder</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Students</td>
+                                        <td><span class="badge low">Low</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge affected">Affected Stakeholder</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>External Industry Experts</td>
+                                        <td><span class="badge low">Low</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge affected">Affected Stakeholder</span></td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- =========================================
+                     STAGE 4
+                ========================================== -->
+
+                <tr id="stage4">
+
+                    <td class="stage-cell">
+
+                        <button class="stage-button"
+                                id="stageButton4"
+                                onclick="toggleStage(4)">
+
+                            <span class="stage-number">
+                                Stage 4
+                            </span>
+
+                            <span class="stage-name">
+                                Influence and Interest
+                            </span>
+
+                            <span class="stage-arrow">›</span>
+
+                        </button>
+
+                    </td>
+
+                    <td class="stage-content-cell">
+
+                        <div class="stage-content"
+                             id="stageContent4">
+
+                            <div class="stage-note">
+                                The influence-interest matrix determines how closely each stakeholder should be engaged.
+                            </div>
+
+                            <div class="inner-table-wrapper">
+
+                                <table class="inner-table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Stakeholder</th>
+                                        <th>Influence</th>
+                                        <th>Interest</th>
+                                        <th>Engagement Strategy</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr>
+                                        <td>University Senior Management</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge manage">Manage Closely</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Programme Director</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge manage">Manage Closely</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Teachers</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge manage">Manage Closely</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>IT Department</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge manage">Manage Closely</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Legal / Data Protection Officer</td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge manage">Manage Closely</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Instructional Designers</td>
+                                        <td><span class="badge low">Low</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge informed">Keep Informed</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Students</td>
+                                        <td><span class="badge low">Low</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge informed">Keep Informed</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>External Industry Experts</td>
+                                        <td><span class="badge low">Low</span></td>
+                                        <td><span class="badge high">High</span></td>
+                                        <td><span class="badge informed">Keep Informed</span></td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- =========================================
+                     STAGE 5
+                ========================================== -->
+
+                <tr id="stage5">
+
+                    <td class="stage-cell">
+
+                        <button class="stage-button"
+                                id="stageButton5"
+                                onclick="toggleStage(5)">
+
+                            <span class="stage-number">
+                                Stage 5
+                            </span>
+
+                            <span class="stage-name">
+                                Support Assessment
+                            </span>
+
+                            <span class="stage-arrow">›</span>
+
+                        </button>
+
+                    </td>
+
+                    <td class="stage-content-cell">
+
+                        <div class="stage-content"
+                             id="stageContent5">
+
+                            <div class="stage-note">
+                                Current support reflects the case evidence. Desired support shows the realistic target for stakeholder engagement.
+                            </div>
+
+                            <div class="inner-table-wrapper">
+
+                                <table class="inner-table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Stakeholder</th>
+                                        <th>Current Support</th>
+                                        <th>Desired Support</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr>
+                                        <td>University Senior Management</td>
+                                        <td><span class="badge support-champion">+2 Champion</span></td>
+                                        <td><span class="badge support-champion">+2 Champion</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Programme Director</td>
+                                        <td><span class="badge support-plus">+1 Supportive</span></td>
+                                        <td><span class="badge support-champion">+2 Champion</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Teachers</td>
+                                        <td><span class="badge support-minus">−1 Resistant</span></td>
+                                        <td><span class="badge support-plus">+1 Supportive</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>IT Department</td>
+                                        <td><span class="badge support-minus">−1 Resistant</span></td>
+                                        <td><span class="badge support-plus">+1 Supportive</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Legal / Data Protection Officer</td>
+                                        <td><span class="badge support-zero">0 Neutral</span></td>
+                                        <td><span class="badge support-plus">+1 Supportive</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Instructional Designers</td>
+                                        <td><span class="badge support-plus">+1 Supportive</span></td>
+                                        <td><span class="badge support-champion">+2 Champion</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Students</td>
+                                        <td><span class="badge support-zero">0 Neutral</span></td>
+                                        <td><span class="badge support-plus">+1 Supportive</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>External Industry Experts</td>
+                                        <td><span class="badge support-zero">0 Neutral</span></td>
+                                        <td><span class="badge support-plus">+1 Supportive</span></td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- =========================================
+                     STAGE 6
+                ========================================== -->
+
+                <tr id="stage6">
+
+                    <td class="stage-cell">
+
+                        <button class="stage-button"
+                                id="stageButton6"
+                                onclick="toggleStage(6)">
+
+                            <span class="stage-number">
+                                Stage 6
+                            </span>
+
+                            <span class="stage-name">
+                                RACI
+                            </span>
+
+                            <span class="stage-arrow">›</span>
+
+                        </button>
+
+                    </td>
+
+                    <td class="stage-content-cell">
+
+                        <div class="stage-content"
+                             id="stageContent6">
+
+                            <div class="stage-note">
+                                RACI clarifies who performs the work, who owns the result, who provides input, and who receives information.
+                            </div>
+
+                            <div class="inner-table-wrapper">
+
+                                <table class="inner-table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Project Task</th>
+                                        <th>R – Responsible</th>
+                                        <th>A – Accountable</th>
+                                        <th>C – Consulted</th>
+                                        <th>I – Informed</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr>
+                                        <td><strong>Programme scope, budget and launch</strong></td>
+                                        <td>Programme Director</td>
+                                        <td>University Management</td>
+                                        <td>Teachers, IT, Legal</td>
+                                        <td>Students</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Course redesign</strong></td>
+                                        <td>Teachers, Instructional Designers</td>
+                                        <td>Programme Director</td>
+                                        <td>Quality Assurance, IT</td>
+                                        <td>Students</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Moodle, AI and analytics integration</strong></td>
+                                        <td>IT / LMS Team</td>
+                                        <td>IT Lead</td>
+                                        <td>AI Specialists, Legal, Programme Director</td>
+                                        <td>Teachers, Students</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Privacy and data-processing review</strong></td>
+                                        <td>IT Team</td>
+                                        <td>Legal / Data Protection Officer</td>
+                                        <td>Programme Director, Students</td>
+                                        <td>University Management</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Launch-readiness and quality review</strong></td>
+                                        <td>Programme Director, Quality Assurance</td>
+                                        <td>University Management</td>
+                                        <td>Teachers, IT, Legal</td>
+                                        <td>Students</td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- =========================================
+                     STAGE 7
+                ========================================== -->
+
+                <tr id="stage7">
+
+                    <td class="stage-cell">
+
+                        <button class="stage-button"
+                                id="stageButton7"
+                                onclick="toggleStage(7)">
+
+                            <span class="stage-number">
+                                Stage 7
+                            </span>
+
+                            <span class="stage-name">
+                                Communication Decision
+                            </span>
+
+                            <span class="stage-arrow">›</span>
+
+                        </button>
+
+                    </td>
+
+                    <td class="stage-content-cell">
+
+                        <div class="stage-content"
+                             id="stageContent7">
+
+                            <div class="stage-note">
+                                Communication is focused on three stakeholder groups whose concerns may significantly affect successful implementation.
+                            </div>
+
+                            <div class="inner-table-wrapper">
+
+                                <table class="inner-table">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Stakeholder</th>
+                                        <th>Main Issue</th>
+                                        <th>Key Message</th>
+                                        <th>Channel</th>
+                                        <th>Frequency</th>
+                                        <th>Owner</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    <tr>
+                                        <td><strong>Teachers</strong></td>
+
+                                        <td>
+                                            Resistance to course redesign
+                                            and design requirements
+                                        </td>
+
+                                        <td>
+                                            Explain required standards,
+                                            available support and the purpose
+                                            of redesign.
+                                        </td>
+
+                                        <td>
+                                            Workshops, meetings and consultations
+                                        </td>
+
+                                        <td>
+                                            Weekly during redesign
+                                        </td>
+
+                                        <td>
+                                            Programme Director +
+                                            Instructional Designer
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td><strong>IT Department</strong></td>
+
+                                        <td>
+                                            Implementation schedule
+                                            considered unrealistic
+                                        </td>
+
+                                        <td>
+                                            Review technical requirements,
+                                            risks, dependencies and realistic deadlines.
+                                        </td>
+
+                                        <td>
+                                            Technical meetings and risk tracker
+                                        </td>
+
+                                        <td>
+                                            Weekly
+                                        </td>
+
+                                        <td>
+                                            Programme Director + IT Lead
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td><strong>Students</strong></td>
+
+                                        <td>
+                                            Concerns about AI use
+                                            and personal data
+                                        </td>
+
+                                        <td>
+                                            Explain AI use, data processing,
+                                            safeguards and feedback channels.
+                                        </td>
+
+                                        <td>
+                                            Orientation, Moodle announcements,
+                                            FAQ and surveys
+                                        </td>
+
+                                        <td>
+                                            Before launch and when changes occur
+                                        </td>
+
+                                        <td>
+                                            Student Support +
+                                            Legal/Data Protection
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <!-- KEYS -->
+    <section class="keys-grid">
+
+        <div class="key-card">
+
+            <h3>RACI Key</h3>
+
+            <table class="key-table">
+
+                <tr>
+                    <td><strong>R</strong></td>
+                    <td>Responsible – performs the work</td>
+                </tr>
+
+                <tr>
+                    <td><strong>A</strong></td>
+                    <td>Accountable – owns and approves the result</td>
+                </tr>
+
+                <tr>
+                    <td><strong>C</strong></td>
+                    <td>Consulted – provides expertise or feedback</td>
+                </tr>
+
+                <tr>
+                    <td><strong>I</strong></td>
+                    <td>Informed – receives relevant information</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <div class="key-card">
+
+            <h3>Support Scale</h3>
+
+            <table class="key-table">
+
+                <tr>
+                    <td><strong>−2</strong></td>
+                    <td>Actively Opposed</td>
+                </tr>
+
+                <tr>
+                    <td><strong>−1</strong></td>
+                    <td>Resistant</td>
+                </tr>
+
+                <tr>
+                    <td><strong>0</strong></td>
+                    <td>Neutral</td>
+                </tr>
+
+                <tr>
+                    <td><strong>+1</strong></td>
+                    <td>Supportive</td>
+                </tr>
+
+                <tr>
+                    <td><strong>+2</strong></td>
+                    <td>Champion</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    Stakeholder analysis prepared for the
+    <strong>AI-Supported Online Master's Programme</strong> integrated case.
+
+    <br><br>
+
+    Framework reference:
+    <a href="https://oletol.github.io/stakeholders/"
+       target="_blank"
+       rel="noopener noreferrer">
+        Stakeholder Analysis and Communication
+    </a>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   TOGGLE A STAGE
+========================================= */
+
+function toggleStage(number) {
+
+    const content =
+        document.getElementById("stageContent" + number);
+
+    const button =
+        document.getElementById("stageButton" + number);
+
+    content.classList.toggle("open");
+    button.classList.toggle("active");
+}
+
+
+/* =========================================
+   NAVIGATION BUTTON
+========================================= */
+
+function openStage(number) {
+
+    const content =
+        document.getElementById("stageContent" + number);
+
+    const button =
+        document.getElementById("stageButton" + number);
+
+    if (!content.classList.contains("open")) {
+        content.classList.add("open");
+        button.classList.add("active");
+    }
+
+    document.getElementById("stage" + number)
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+}
+
+
+/* =========================================
+   EXPAND ALL
+========================================= */
+
+function expandAll() {
+
+    for (let i = 1; i <= 7; i++) {
+
+        document
+            .getElementById("stageContent" + i)
+            .classList.add("open");
+
+        document
+            .getElementById("stageButton" + i)
+            .classList.add("active");
+    }
+}
+
+
+/* =========================================
+   COLLAPSE ALL
+========================================= */
+
+function collapseAll() {
+
+    for (let i = 1; i <= 7; i++) {
+
+        document
+            .getElementById("stageContent" + i)
+            .classList.remove("open");
+
+        document
+            .getElementById("stageButton" + i)
+            .classList.remove("active");
+    }
+}
+
+</script>
+
+</body>
+</html>
